@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TazziexTreats.Models;
 
-namespace FitnessFormula_API.Controllers
+namespace TazziexTreats.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
