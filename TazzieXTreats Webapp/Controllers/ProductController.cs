@@ -106,7 +106,7 @@ public class ProductController : Controller
         List<ProductModel> products = new List<ProductModel>();
         try
         {
-            var response = await _httpClient.GetAsync("https://localhost:7076/api/Products/type/Cupcake");
+            var response = await _httpClient.GetAsync("https://localhost:7194/api/Products/type/Cupcake");
             response.EnsureSuccessStatusCode();
 
             var responseData = await response.Content.ReadAsStringAsync();
@@ -135,7 +135,7 @@ public class ProductController : Controller
         List<ProductModel> products = new List<ProductModel>();
         try
         {
-            var response = await _httpClient.GetAsync("https://localhost:7076/api/Products/type/Cookie");
+            var response = await _httpClient.GetAsync("https://localhost:7194/api/Products/type/Cookie");
             response.EnsureSuccessStatusCode();
 
             var responseData = await response.Content.ReadAsStringAsync();
@@ -221,7 +221,7 @@ public class ProductController : Controller
             var userId = HttpContext.Session.GetString("UserId");
 
             // Make a GET request to the API to fetch the user's cart items
-            var response = await _httpClient.GetAsync($"https://localhost:7076/api/UserCart/MyCart?userId={userId}");
+            var response = await _httpClient.GetAsync($"https://localhost:7194/api/UserCart/MyCart?userId={userId}");
 
             // Check if the response was successful
             if (response.IsSuccessStatusCode)
@@ -281,7 +281,7 @@ public class ProductController : Controller
         try
         {
             // Send GET request to the API endpoint with the productName parameter
-            var response = await _httpClient.GetAsync($"https://localhost:7076/api/Products/search/{Uri.EscapeDataString(Name)}");
+            var response = await _httpClient.GetAsync($"https://localhost:7194/api/Products/search/{Uri.EscapeDataString(Name)}");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
@@ -331,7 +331,7 @@ public class ProductController : Controller
             var userId = HttpContext.Session.GetString("UserId");
 
             // Make a DELETE request to the API to delete the user's cart
-            var response = await _httpClient.DeleteAsync($"https://localhost:7076/api/UserCart/ClearCart?userId={userId}");
+            var response = await _httpClient.DeleteAsync($"https://localhost:7194/api/UserCart/ClearCart?userId={userId}");
 
             // Check if the response was successful
             if (response.IsSuccessStatusCode)

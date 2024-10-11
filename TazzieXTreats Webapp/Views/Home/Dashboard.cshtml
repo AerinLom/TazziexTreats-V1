@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Success";
+    var username = TempData["Username"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TazzieXTreats Dashboard</title>
+    <link rel="stylesheet" href="~/css/styling.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <img src="~/images/TazzieBanner.png" alt="">
+        </a>
+        <div class="profile">
+            <div class="name">
+                <h1>@username</h1>
+                <img src="" alt="">
+            </div>
+            <span></span>
+        </div>
+        <div class="about">
+            <div class="box">
+                <h3></h3>
+                <span></span>
+            </div>
+            <div class="box">
+                <h3></h3>
+                <span></span>
+            </div>
+            <div class="box">
+                <h3></h3>
+                <span></span>
+            </div>
+        </div>
+        <div class="menu">
+            <a asp-controller="Home" asp-action="Dashboard">
+                <span class="icon">
+                    <i class="ri-home-line"></i>
+                </span>
+                Home
+            </a>
+            <a asp-controller="Product" asp-action="MyCart">
+                <span class="icon">
+                    <i class="ri-shopping-cart-line"></i>
+                </span>
+                My Cart
+            </a>
+        </div>
+    </div>
+
+    <div class="main-home">
+        <div class="header">
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <form asp-controller="Product" asp-action="SearchProducts" method="get" class="search-form">
+                    <input id="searchInput" type="text" name="Name" placeholder="Search..." required class="search-input">
+                    <button type="submit" class="custom-search-button">Search</button>
+                </form>
+            </div>
+            <div class="header-content">
+                <a asp-controller="User" asp-action="Logout" class="btn">
+                    <i class="ri-home-line"></i>
+                    <div class="btn-text">Logout</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="about-us-section">
+            <h1 class="about-us-title">About Us</h1>
+            <p class="about-us-description">
+                At TazziexTreats, we believe that every bite should bring joy. Our journey started with a passion for baking and a dream to create delightful treats that bring smiles to faces. Our values are rooted in quality, creativity, and community, ensuring that every product we offer is made with love and care. Join us on this delicious adventure, and let's celebrate the joy of treats together!
+            </p>
+        </div>
+
+        <!-- Check Out Our Treats Section -->
+        <div class="treats-section">
+            <h2 class="treats-title">Check Out Our Treats</h2>
+            <a asp-controller="Product" asp-action="Index" class="post-box">
+                <h1 class="post-title">View Our Products</h1>
+                <img src="~/images/oreo.png" alt="" class="post-image">
+            </a>
+        </div>
+
+        <!-- Our New Additions Section -->
+        <div class="new-additions-section">
+            <h2 class="new-additions-title">Our New Additions</h2>
+            <a asp-controller="Product" asp-action="Latest" class="post-box">
+                <h1 class="post-title">Try Something New</h1>
+                <img src="~/images/Turk.png" alt="" class="post-image">
+            </a>
+        </div>
+
+        <!-- Looking for Something Specific Section -->
+        <div class="specific-treats-section">
+            <h2 class="specific-treats-title">Looking for Something Specific?</h2>
+            <div class="specific-treats-links">
+                <a asp-controller="Product" asp-action="CakeView" class="post-box">
+                    <h1 class="post-title">Try Our Delicious Cakes</h1>
+                    <img src="~/images/Cake.png" alt="" class="post-image">
+                </a>
+                <a asp-controller="Product" asp-action="CupcakeView" class="post-box">
+                    <h1 class="post-title">How about a Cupcake?</h1>
+                    <img src="~/images/CupcakeBackground.png" alt="" class="post-image">
+                </a>
+                <a asp-controller="Product" asp-action="CookieView" class="post-box">
+                    <h1 class="post-title">Do you want a cookie?</h1>
+                    <img src="~/images/Untitled.png" alt="" class="post-image">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.instagram.com/tazziexTreats" target="_blank" class="social-link">
+                <i class="ri-instagram-line"></i> Follow us on Instagram
+            </a>
+            <a href="mailto:customorders@tazziextreats.com" class="custom-orders-link">
+                <i class="ri-mail-line"></i> Looking for customised treats?  |  Contact Us
+            </a>
+        </div>
+    </footer>
+
+    <script src="~/js/search.js"></script>
+</body>
+</html>

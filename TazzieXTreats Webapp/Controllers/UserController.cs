@@ -12,7 +12,7 @@ namespace TazzieXTreats_Webapp.Controllers
     public class UserController : Controller
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "https://localhost:7076/api/";
+        private readonly string _baseUrl = "https://localhost:7194/api/";
 
         public UserController()
         {

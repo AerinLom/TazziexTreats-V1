@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="~/css/cart.css">
+</head>
+<body>
+
+    <div class="main-home">
+        <div class="cart-container">
+            <a href="/home/dashboard" class="back-button">Back to Dashboard</a>
+            <!-- Logo section -->
+            <div class="logo-container">
+                <img src="~/images/TazzieLogo.png" alt="Tazzie Treats" class="logo">
+            </div>
+            <div class="header">
+                <h1>Your Cart</h1>
+            </div>
+
+            <div class="product-list">
+                @if (Model != null && Model.Count > 0)
+                {
+                    decimal subtotal = 0.00m; // Initialize subtotal
+
+                    foreach (var product in Model)
+                    {
+                        var total = product.Price;
+                        subtotal += total; // Calculate subtotal for initial load
+
+                        <div class="product-item">
+                            <img src="@product.Picture" alt="@product.Name" class="product-image" />
+                            <div class="product-details">
+                                <h2>@product.Name</h2>
+                                <p>Price: <strong>R @product.Price</strong></p>
+                                <p class="item-total" id="total_@product.Id">Total: <strong>R @total</strong></p>
+                            </div>
+                        </div>
+                    }
+
+                    // Set the initial subtotal value in the span after the products have been rendered
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            // Set subtotal value directly in the span
+                            document.getElementById("subtotal").innerHTML = "R @subtotal.ToString("F2")"; // Update subtotal in the HTML
+                        });
+                    </script>
+                }
+                else
+                {
+                    <p>No products available.</p>
+                }
+            </div>
+
+            <div class="cart-footer">
+                <h3>Subtotal: <span id="subtotal">R 0.00</span></h3> <!-- Initial value will be updated by the script -->
+                <form asp-controller="Product" asp-action="DeleteCart" method="post" onsubmit="return confirm('Are you sure you want to delete your cart?');">
+                    <button class="checkout-button">Delete Cart</button>
+                </form>
+                <button class="checkout-button" onclick="proceedToPayment()">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/cart.js"></script>
+    <script>
+        function updateQuantity(productId, change, price) {
+            const quantityElement = document.getElementById(`quantity_${productId}`);
+            let quantity = parseInt(quantityElement.innerHTML) + change;
+
+            if (quantity < 1) {
+                quantity = 1;
+            }
+
+            quantityElement.innerHTML = quantity;
+            updateSubtotal(quantityElement, price);
+        }
+
+        function updateSubtotal(quantityInput, price) {
+            const quantity = quantityInput.innerHTML;
+            const productId = quantityInput.id.split('_')[1];
+            const totalElement = document.getElementById(`total_${productId}`);
+            const subtotalElement = document.getElementById("subtotal");
+
+            const total = (quantity * price).toFixed(2);
+            totalElement.innerHTML = `Total: <strong>R ${total}</strong>`;
+
+            let subtotal = 0.00;
+            const itemTotals = document.querySelectorAll('.item-total strong');
+            itemTotals.forEach(item => {
+                const itemTotal = parseFloat(item.innerHTML.replace('R ', ''));
+                subtotal += itemTotal;
+            });
+            subtotalElement.innerHTML = `R ${subtotal.toFixed(2)}`; // Update the displayed subtotal
+        }
+
+        function proceedToPayment() {
+            const subtotal = parseFloat(document.getElementById("subtotal").innerHTML.replace('R ', '').replace(',', '')); // Get subtotal from the displayed value
+            const amountInCents = Math.round(subtotal);
+            window.location.href = `/Payment/Checkout?subtotal=${amountInCents}`;
+        }
+    </script>
+</body>
+</html>

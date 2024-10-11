@@ -1,0 +1,96 @@
+﻿@model List<ProductModel>
+
+@{
+    ViewData["Title"] = "Success";
+    var username = TempData["Username"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TazzieXTreats Dashboard</title>
+    <link rel="stylesheet" href="~/css/styling.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <img src="~/images/TazzieBanner.png" alt="">
+        </a>
+        <div class="profile">
+            <div class="name">
+                <h1>@username</h1>
+                <img src="" alt="">
+            </div>
+            <span></span>
+        </div>
+        <div class="menu">
+            <a asp-controller="Home" asp-action="Dashboard">
+                <span class="icon">
+                    <i class="ri-home-line"></i>
+                </span>
+                Home
+            </a>
+            <a asp-controller="Product" asp-action="MyCart">
+                <span class="icon">
+                    <i class="ri-shopping-cart-line"></i>
+                </span>
+                My Cart
+            </a>
+        </div>
+    </div>
+
+    <div class="main-home">
+        <div class="header">
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <form asp-controller="Product" asp-action="SearchProducts" method="get" class="search-form">
+                    <input id="searchInput" type="text" name="Name" placeholder="Search..." required class="search-input">
+                    <button type="submit" class="custom-search-button">Search</button>
+                </form>
+            </div>
+            <div class="header-content">
+                <button class="icon-btn">
+                    <i class="ri-notification-4-line"></i>
+                </button>
+                <a asp-controller="User" asp-action="Logout" class="btn">
+                    <i class="ri-home-line"></i>
+                    <div class="btn-text">Logout</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="feed">
+            <h1>Our Cakes</h1>
+        </div>
+
+        <div class="product-list">
+            @if (Model != null && Model.Count > 0)
+            {
+                @foreach (var product in Model)
+                {
+                    <div class="product-item">
+                        <h1>@product.Name</h1>
+                        <img src="@product.Picture" alt="@product.Name" />
+                        <p>Price: R @product.Price</p>
+                        <p>@product.Description</p>
+                        <form asp-controller="Product" asp-action="AddProductToCart" method="post">
+                            <input type="hidden" name="Id" value="@product.Id" />
+                            <button type="submit" class="add-to-cart-btn">Add to cart</button>
+                        </form>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+        </div>
+    </div>
+
+    <script src="~/js/search.js"></script>
+</body>
+</html>

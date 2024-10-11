@@ -30,7 +30,7 @@ namespace TazzieXTreats_Webapp.Controllers
                     }
                 },
                 Mode = "payment",
-                SuccessUrl = "https://localhost:7142/home/dashboard",
+                SuccessUrl = "https://localhost:7269/home/dashboard",
                 CancelUrl = "https://localhost:5000/cancel"
             };
 

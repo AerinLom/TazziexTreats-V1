@@ -1,0 +1,760 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: silver;
+    letter-spacing: 0.5px;
+    color: silver;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #B8EBD9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f8d7da;
+}
+
+:root {
+    --gradient: linear-gradient(to right, #B8EBD9, lightpink);
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    height: 120vh;
+    background: #B8EBD9;
+    padding: 20px;
+    z-index: 1000;
+    left: 0px;
+    margin-top: -80px;
+}
+
+.logo img {
+    width: 280px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.4rem;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.profile-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+    .profile-img img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        object-position: center;
+        transition: transform 0.3s ease;
+    }
+
+.profile-btn:hover .profile-img img {
+    transform: scale(1.1);
+}
+
+.name {
+    display: flex;
+    position: center;
+    margin: 1rem 0 0.4rem;
+    color: #000;
+    margin-left: 24px;
+}
+
+    .name h1 {
+        font-size: 1.1rem;
+    }
+
+    .name img {
+        margin-left: 4px;
+        width: 20px;
+        object-fit: cover;
+    }
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.box {
+    text-align: center;
+}
+
+    .box h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .box span {
+        font-size: 0.98rem;
+        font-weight: 0;
+        color: #555;
+    }
+
+.menu {
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+    .menu a {
+        text-align: center;
+        width: 100%;
+        font-size: 1.6rem;
+        color: black;
+        display: flex;
+        align-items: center;
+        line-height: 60px;
+    }
+
+    .menu .icon {
+        margin-right: 1rem;
+        font-size: 20px;
+    }
+
+    .menu a:hover,
+    .menu .active {
+        color: lightpink;
+    }
+
+        .menu a:hover::before,
+        .menu .active::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 2px;
+            height: 17px;
+            background: lightpink;
+        }
+
+.main-home {
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 300px;
+    background: url(/images/photo1.jfif) no-repeat center center; /* This will prevent the image from repeating and center it */
+    background-size: cover;
+    top: 0;
+    min-height: 100vh;
+    border-radius: 1rem 0 0 1rem;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background: #f8d7da;
+    width: 800px;
+    height: 2.4rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid black;
+    margin-left: 300px;
+    border-width: 1px;
+}
+
+    .search input {
+        border: none;
+        outline: none;
+        background: transparent;
+        margin-left: 7px;
+        text-emphasis-color: lightpink;
+        color: black;
+    }
+
+        .search input::placeholder {
+            color: lightpink;
+        }
+
+    .search i {
+        font-size: 20px;
+        color: lightpink;
+    }
+
+.custom-search-button {
+    background: linear-gradient(to right, lightpink, white);
+    color: black;
+    border: solid black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: 10px; /* Adjust the margin as needed */
+    border-width: 5px;
+}
+
+    .custom-search-button:hover {
+        background: linear-gradient(to right, white, lightpink);
+    }
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+    .icon-btn i {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .icon-btn:hover {
+        transform: translateY(-2px);
+    }
+
+.header-content i {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 1rem;
+}
+
+.header-content .btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, pink, white);
+    margin-left: -300px;
+    transition: transform 0.3s ease;
+}
+
+    .header-content .btn:hover {
+        transform: translateX(10px);
+        background: lightpink;
+    }
+
+    .header-content .btn i {
+        color: black;
+        margin-right: 10px;
+    }
+
+.btn-text {
+    color: black;
+}
+
+.stories-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+    .stories-title h1 {
+        font-size: 1.8rem;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    .stories-title .btn {
+        display: flex;
+        align-items: center;
+        color: #eee;
+    }
+
+        .stories-title .btn i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+.stories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.stories-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-position: center;
+    border: 2px solid #e2336b;
+}
+
+    .stories-img img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        object-position: center;
+    }
+
+    .stories-img.color {
+        border: 2px solid #dbdbdb;
+    }
+
+    .stories-img .add {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+        color: #fff;
+        background: hsla(0, 0%, 25%, 0.7);
+    }
+
+.feed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+    .feed h1 {
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+        color: #fff;
+        height: 70px;
+    }
+
+.feed-text {
+    display: flex;
+    align-items: center;
+    color: #eee;
+}
+
+.feed h2 {
+    font-size: irem;
+    margin-right: 1rem;
+}
+
+.main-categories {
+    display: flex;
+    grid-template-columns: repeat(auto-fix, minmax(300px - auto));
+    gap: 30px;
+}
+
+    .main-categories background {
+        background-size: cover;
+        background-position: center; /* Center the image horizontally and vertically */
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+.post-box:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+button.post-box {
+    top: 120px;
+    all: unset;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+a.post-box {
+    top: 120px;
+    all: unset;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+.post-box {
+    width: 300px;
+    background-color: #B8EBD9;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    margin-left: 0px;
+}
+
+    .post-box h1 {
+        position: absolute;
+        margin-left: 560px;
+        transform: translateX(-50%);
+        font-size: 24px;
+        opacity: 1;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        color: deeppink;
+    }
+
+    .post-box:hover h1 {
+        opacity: 1;
+    }
+
+    .post-box img {
+        margin-left: 110px;
+        width: 80%;
+        height: 360px;
+        object-fit: cover;
+        border-radius: 2rem;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+.post-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-profile {
+    display: flex;
+    align-items: center;
+}
+
+.custom-search-button {
+    position:absolute;
+    right: 590px;
+    width: 150px;
+    height: 38px;
+    background: linear-gradient(to right, pink, white);
+    color: black;
+    border: solid;
+    border-color: silver;
+    padding: 0px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .custom-search-button:hover {
+        background: linear-gradient(to right, white, pink);
+    }
+
+
+.workout-tile {
+    background-image: url(../images/athlete-modified.jpg);
+    color: gold;
+    background-size: cover;
+    background-position: center;
+    width: 750px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
+    margin-left: 165px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px black;
+}
+
+    .workout-tile:hover {
+        transform: scale(1.015);
+        box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.6);
+        color: #B8860B;
+    }
+
+        .workout-tile:hover::before {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+
+.workout-tile h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.workout-tile p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.save-workout-button {
+    background: linear-gradient(to right, gold, darkgoldenrod);
+    color: black;
+    border: 2px solid black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-left: 10px;
+}
+
+    .save-workout-button:hover {
+        background: linear-gradient(to right, darkgoldenrod, gold);
+        color: black;
+    }
+
+.prev-button {
+    background: linear-gradient(to bottom right, black, gold);
+    color: white;
+    border: none;
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 20px; /* Adjust the icon size */
+}
+
+    .prev-button:hover {
+        background: linear-gradient(to bottom right, gold, black);
+        color: white;
+    }
+
+    .prev-button i {
+        margin: 0; /* No margin needed since the button is circular */
+    }
+
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: center; /* Center the products in the container */
+    margin-top: 20px;
+}
+
+.product-item {
+    background-color: #f4f4f4;
+    border: 3px solid #ddd;
+    border-color: lightpink;
+    border-radius: 80px;
+    padding: 40px;
+    margin: 20px; /* Add margin between the products */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px); /* Adjust width to fit 2 items per row */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+    .product-item h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .product-item img {
+        width: 400px; /* Adjust width as needed */
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-item p {
+        font-size: 1.2em;
+        color: #333;
+        margin: 5px 0;
+    }
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    background-color: lightpink;
+    color: ghostwhite;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+    .add-to-cart-btn:hover {
+        background-color: deeppink;
+    }
+.search-form {
+    display: flex; /* Use flexbox to align children */
+    align-items: center; /* Center items vertically */
+    border: 1px solid #ccc; /* Add a border around the form */
+    border-radius: 5px; /* Rounded corners for the whole form */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+.search-input {
+    flex: 1; /* Allow input to grow and take available space */
+    padding: 10px; /* Add padding */
+    border: none; /* Remove border for a cleaner look */
+    outline: none; /* Remove outline on focus */
+}
+
+.custom-search-button {
+    margin-right: 6px;
+    height: 30px;
+    padding: 1px 15px; /* Add padding for the button */
+    border: none; /* Remove border */
+    background-color: hotpink; /* Button color */
+    color: black; /* Text color */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    border-radius: 9px;
+}
+
+    .custom-search-button:hover {
+        background-color: lightpink; /* Change color on hover */
+    }
+
+/* About Us Section */
+.about-us-section {
+    background-color: #fff; /* White background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 70px;
+    margin-top: 70px;
+    opacity: 88%;
+    width: 400px;
+    margin-left: 500px;
+}
+
+.about-us-title {
+    color: darkseagreen; /* Dark text for contrast */
+    font-size: 30px;
+}
+
+.about-us-description {
+    color: #555; /* Medium gray for description */
+    font-size: 20px;
+}
+
+/* Treats Section */
+.treats-section,
+.new-additions-section,
+.specific-treats-section {
+    margin-left: 200px;
+    background-color: #fff; /* White background for contrast */
+    padding: 20px;
+    border-radius: 40px;
+    margin-bottom: 180px;
+    opacity: 87%;
+    width: 1200px;
+}
+
+.treats-title,
+.new-additions-title,
+.specific-treats-title {
+    color: #333; /* Dark text for contrast */
+    font-size: 30px;
+}
+
+/* Post Box Styles */
+.post-box {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: none; /* Remove underline */
+    transition: transform 0.2s;
+    margin-left: -20px;
+}
+
+    .post-box:hover {
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+.post-title {
+    color: #333; /* Dark text */
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.post-image {
+    width: 20%; /* Responsive image */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Specific Treats Links */
+.specific-treats-links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 0px; /* Space between links */
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    margin-top: 30px;
+    left: 0px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+    .footer a:hover {
+        color: #f8d7da;
+    }
+
+.social-link i, .custom-orders-link i {
+    margin-right: 8px;
+}
